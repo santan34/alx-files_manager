@@ -11,7 +11,10 @@ class DBClient {
   }
 
   isAlive() {
-    return this.client.topology && this.client.topology.isConnected();
+    if (this.client.topology && this.client.topology.isConnected()) {
+      return true;
+    }
+    return false;
   }
 
   async nbUsers() {
@@ -26,5 +29,4 @@ class DBClient {
 }
 
 const dbClient = new DBClient();
-console.log(dbClient);
 module.exports = dbClient;
