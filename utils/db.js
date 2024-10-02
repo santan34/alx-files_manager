@@ -31,6 +31,11 @@ class DBClient {
     const users = this.client.db().collection('users');
     return users;
   }
+
+  filesCollection() {
+    const files = this.client.db().collection('files');
+    return files;
+  }
 }
 
 const dbClient = new DBClient();

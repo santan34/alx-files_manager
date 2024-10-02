@@ -1,7 +1,8 @@
 const AppController = require("../controllers/AppController");
 const UsersController = require("../controllers/UsersController");
 const AuthController = require("../controllers/AuthController");
-const UserController = require("../controllers/");
+const FilesController = reqyire("../controllers/FilesController");
+
 
 const injectRoutes = (app) => {
   app.get("/status", AppController.getStatus);
@@ -9,6 +10,7 @@ const injectRoutes = (app) => {
   app.post("/users", UsersController.postNew);
   app.get("/connect", AuthController.getConnect);
   app.get("/disconnect", AuthController.getDisconnect);
-  app.get("/users/me", UserController.getMe);
+  app.get("/users/me", UsersController.getMe);
+  app.post('/files', FilesController.postUpload);
 };
 module.exports = injectRoutes;
